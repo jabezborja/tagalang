@@ -32,7 +32,7 @@ Commenting
 ```
 
 # Create some Programs #
-Make sure that you always put your files in 'Program' folder or it will not be detected.
+Make sure that you always put your files in main folder where your all tagalag files sits or it will not be detected.
 
 # Installation #
 You can install this on your local machine.
