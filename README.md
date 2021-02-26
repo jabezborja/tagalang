@@ -31,6 +31,11 @@ Commenting
 !? This is a comment
 ```
 
+TO DO LIST:
+* Linisin ang codebase
+* Kung statements (If Statements)
+
+
 # Create some Programs #
 Make sure that you always put your files in main folder where your all tagalag files sits or it will not be detected.
 
