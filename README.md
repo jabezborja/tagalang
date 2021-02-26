@@ -6,17 +6,17 @@ This can do:
 
 Printing
 ```
-iPrint ang ->'Hello World!'
-```
-
-Printing Variables
-```
-iPrint ang ->VariableName
+iPrint ang 'Hello World!'
 ```
 
 Declaring Variables and add its value
 ```
-baryabol ->VariableName= 'Variable Value'
+baryabol variableName = "Variable Value"
+```
+
+Printing Variables
+```
+iPrint ang VariableName
 ```
 
 If statements (Not Finished and Not Functioning Yet)
@@ -48,19 +48,10 @@ To run any programs you need to run 'tagalag-console.bat' where you will type 't
 
 Then, it will ask you what is the name of the file, if your first time, it is 'program.tag' file.
 
-# Issues #
-If you have any issues just report a issue in the repo or email me 'jabez.natsu@gmail.com'.
-
 # About me and TagaLag #
-You can find more about me in https://jabstorre.herokuapp.com
+You can find more about me in https://jabezborja.ga
 
 # Contribute #
-You can contribute in this repo anytime anywhere. Just Fork and work on your repo then don't hesitate
-to send some pull request, I will review it right away :)
-
-# Do you like what I am doing? #
-If you like or love what I am doing, you can donate on me, if you want to. I will REALLY APPRECIATE IT :)
-
-
+Don't hesitate to send some pull request, I will review it right away :)
 
 THANK YOU!!!! :)
