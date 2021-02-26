@@ -31,19 +31,20 @@ class Interpreter:
     def check(self, line):
         ## PRINTS ##
         if 'iPrint' in line:
-            if line[-2] == "'":
-                to_be_print = line[14:-1]
-
-                # Remove " ' " Suffix (Error)
-                if "'" in to_be_print:
-                    to_be_print = to_be_print.replace("'", "")
+            if line[-1] == "\"":
+                to_be_print = line[12:-1]
                 print(to_be_print)
-
+            elif line[-2] == "\"":
+                to_be_print = line[12:-2]
+                print(to_be_print)
             else:
-                curr_baryabol = line[13:]
+                curr_baryabol = line[11:]
                 if self.baryabols:
+                    # Check if there is an spacing and remove it
                     if '\n' in curr_baryabol:
                         curr_baryabol = curr_baryabol.replace("\n", "")
+
+                    # Check if the Baryabol want to print is in saved baryabols
                     if curr_baryabol in self.baryabols:
                         baryabol_found = self.baryabols[curr_baryabol]
 
@@ -51,6 +52,7 @@ class Interpreter:
                         if "'" in baryabol_found:
                             baryabol_found = baryabol_found.replace("'", "")
 
+                        # Finally, print the baryabol to console
                         print(baryabol_found)
                     else:
                         self.raiseError(
@@ -79,11 +81,11 @@ class Interpreter:
                     collecting_baryabol_name = True
 
                 if collecting_baryabol_name:
-                    if word == ">":
+                    if word == " ":
                         activate_baryabol_collector = True
 
                     if activate_baryabol_collector:
-                        if not line_arr[baryabol_word_count-1] == ">":
+                        if not line_arr[baryabol_word_count-1] == " ":
                             self.baryabol_shortmemory += line_arr[baryabol_word_count]
                         else:
                             self.baryabol_shortmemory += line_arr[baryabol_word_count]
@@ -265,7 +267,6 @@ class Interpreter:
         print(">>> banda sa LINE: %s" % self.line_count)
         quit()
 
-print("Info: What is the name of the .tag program. Make sure that the Program is sitting in the main\ntagalag file location and make sure that there is .tag extension\n")
-c = Interpreter(input(".tag extension to open: "))
+c = Interpreter("program.tag")
 os.system("cls")
 c.interpret()

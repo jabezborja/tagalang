@@ -1,6 +1,3 @@
-!? This is a Example of TagaLag Program and this is a comment ?!
+baryabol printThisBaryabol = "Hello, World!"
 
-baryabol ->VariableName= 'Variable Value'
-
-!? This will print the Baryabol Value from VariableName
-iPrint ang ->VariableName
+iPrint ang printThisBaryabol
