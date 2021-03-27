@@ -1,6 +1,6 @@
-# TagaLag Programming Language #
+# TagaLang Programming Language #
 
-This Programming Language (Kuno) is a Intrepreted language with Python. (Imagine Intrepreted Language in a Intrepreted Language)
+TagaLag is an interpreted programming language, it is created with Python3.
 
 This can do:
 
