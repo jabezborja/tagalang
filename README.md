@@ -1,12 +1,12 @@
 # TagaLang Programming Language #
 
-TagaLag is an interpreted programming language, it is created with Python3.
+TagaLang is an interpreted programming language with tagalog syntax, it is created with Python3.
 
 This can do:
 
 Printing
 ```
-iPrint ang 'Hello World!'
+ipakita 'Hello World!'
 ```
 
 Declaring Variables and add its value
