@@ -6,29 +6,29 @@ This can do:
 
 Printing
 ```
-ipakita 'Hello World!'
+ipakita "Hello World!"
 ```
 
 Declaring Variables and add its value
 ```
-baryabol variableName = "Variable Value"
+ipahayag variableName sa "Variable Value"
 ```
 
-Printing Variables
+Printing Variables (This is without quotation marks)
 ```
-iPrint ang VariableName
+ipakita variableName
 ```
 
-If statements (Not Finished and Not Functioning Yet)
+If statements
 ```
-kung(1 ay=sa 1) tapos -> {
-    !?... Some codes
-}
+kung variableName ay "Variable Value" tapos
+    ipakita variableName
+tapusin
 ```
 
 Commenting
 ```
-!? This is a comment
+!? Comment to
 ```
 
 TO DO LIST:
