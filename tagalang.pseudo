@@ -1,0 +1,17 @@
+baryabol<letra> pangalan = "jabez"
+baryabol<numero> edad = 17
+baryabol<ooathindi> pogi = Oo
+
+makina simula(pangalan<letra>) tapos
+    ipahayag("Ako ay nasa main")
+
+    kung pangalan ay "jabez" tapos
+        ipahayag("Nice, jabez")
+    odikayakung pangalan ay "jane" tapos
+        ipahayag("Noice")
+    iba tapos
+        ipahayag("Wala naman")
+    pagtatapos
+pagtatapos
+
+simula(pangalan)
