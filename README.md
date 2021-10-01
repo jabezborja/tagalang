@@ -1,4 +1,5 @@
-# Pinoice - A Tagalog Programming Language (Former TagaLang)
+# Pinoice - A Tagalog Programming Language
+## (Former TagaLang)
 A tagalog-based syntax programming language where Filipino programmers can play with. Pinoice is based on Python3 Programming Language.
 
 ## Example
