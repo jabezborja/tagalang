@@ -35,13 +35,13 @@ print(pangalanatedad)
 - [x] Baryabols (Variables)
     - [x] Baryabol types
     - [x] Assign
-- [] Builtins
-    - [] Ipahayag (print function)
-    - [] Lagdaan (input function)
-- [] Kung-Ibapa statements (If-else statements)
-- [] Bawat loops (For loops)
-- [] Habang loops (While loops)
-- [] Makina (Functions)
+- [ ] Builtins
+    - [ ] Ipahayag (print function)
+    - [ ] Lagdaan (input function)
+- [ ] Kung-Ibapa statements (If-else statements)
+- [ ] Bawat loops (For loops)
+- [ ] Habang loops (While loops)
+- [ ] Makina (Functions)
 
 # Installation
 
