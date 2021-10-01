@@ -37,7 +37,7 @@ baryabol listahan_ni_aling_cely ay ["100 sa milk", "200 sa gatas", "300 sa bear 
 
 sakada listahan_ni_aling_cely bilang lista tapos
     ipahayag ang "Binili ni aling cely ang " + lista
-patatapos
+pagtatapos
 ```
 
 # While loops
