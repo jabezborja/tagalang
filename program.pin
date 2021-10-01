@@ -1,5 +1,6 @@
-baryabol<letra> firstname: "Jabez "
-baryabol<letra> lastname: "Borja"
+baryabol<letra> pangalan: "Jabez"
 baryabol<numero> edad: 17
 
-baryabol<kahitano> overall: "Si " + firstname + lastname + " ay " + edad + " na taong gulang"
+baryabol<kahitano> PangalanAtEdad: "Si " + pangalan + " ay " + edad + " na taong gulang"
+
+ipahayag(PangalanAtEdad)
