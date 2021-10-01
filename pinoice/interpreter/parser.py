@@ -43,6 +43,7 @@ class Parser:
         while self.curr_token[0] != TokenTypes.EOF:
             if self.curr_token[0] in TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[0]:
                 name, val = self.make_baryabols()
+                print(name, val)
                 self.conductor.subscribe(name, val)
             elif self.curr_token[0] in TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[1]:
                 self.do_ipahayag()

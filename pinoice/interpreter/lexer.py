@@ -26,6 +26,12 @@ class Lexer:
     def next(self):
         self.pos += 1
         self.curr_char = self.fs[self.pos] if self.pos < len(self.fs) else None
+
+    def future(self):
+        pos = self.pos
+        pos += 1
+
+        return self.fs[pos]
     
     def generate_tokens(self):
         tokens = []
@@ -38,12 +44,12 @@ class Lexer:
                 self.next()
             elif self.curr_char in Consts.DIGITS:
                 tokens.append(self.generate_numero())
-            elif self.curr_char in Consts.LETTERS:
-                tokens.append(self.generate_identifier())
             elif self.curr_char in '"':
                 tokens.append(self.generate_letra())
-            elif self.curr_char in ':':
-                tokens.append(self.generate_equals())
+            elif self.curr_char in 'a' and self.future() in 'y':
+                tokens.append(Token(TokenTypes.EQUALS))
+                self.next()
+                self.next()
             elif self.curr_char in '+':
                 tokens.append(Token(TokenTypes.PLUS))
                 self.next()
@@ -68,16 +74,18 @@ class Lexer:
             elif self.curr_char in ']':
                 tokens.append(Token(TokenTypes.RIGHT_BRACKET))
                 self.next()
-            elif self.curr_char in '<':
+            elif self.curr_char in 'n' and self.future() in 'a':
                 tokens.append(self.generate_type())
                 self.next()
             elif self.curr_char in ',':
                 tokens.append(Token(TokenTypes.COMMA))
                 self.next()
+            elif self.curr_char in Consts.LETTERS:
+                tokens.append(self.generate_identifier())
             else:
                 self.next()
                 return []
-
+                
         tokens.append(Token(TokenTypes.EOF))
             
         return tokens
@@ -123,21 +131,15 @@ class Lexer:
         type = TokenTypes.KEYWORD if identifier_prototype in KEYWORDS else TokenTypes.IDENTIFIER
         return Token(type, identifier_prototype)
 
-    def generate_equals(self):
-        equals_type = TokenTypes.EQUALS
-        self.next()
-
-        if self.curr_char == "=":
-            self.next()
-            equals_type = TokenTypes.DOUBLE_EQUALS
-
-        return Token(equals_type)
-
     def generate_type(self):
-        self.next()
+
+        # Advance for 3 times
+        for _ in range(3):
+            self.next()
+
         type_type = ""
 
-        while self.curr_char != None and (self.curr_char != '>'):
+        while self.curr_char != None and (self.curr_char != ' '):
             type_type += self.curr_char
             self.next()
 

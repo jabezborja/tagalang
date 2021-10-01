@@ -53,7 +53,9 @@ class TokenTypes:
 
 KEYWORDS = [
     "baryabol",
-    "ipahayag"
+    "ipahayag",
+    "na",
+    "ay"
 ]
 
 class Consts:

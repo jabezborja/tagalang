@@ -1,4 +1,1 @@
-baryabol<letra> pangalan: "Jabez"
-baryabol<numero> edad: 17
-
-baryabol<kahitano> PangalanAtEdad: "Si " + pangalan + " ay " + edad + " na taong gulang"
+baryabol na letra pangalan ay "Jabez"
