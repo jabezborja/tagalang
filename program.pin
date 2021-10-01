@@ -1,0 +1,5 @@
+baryabol<letra> firstname: "Jabez "
+baryabol<letra> lastname: "Borja"
+baryabol<numero> edad: 17
+
+baryabol<kahitano> overall: "Si " + firstname + lastname + " ay " + edad + " na taong gulang"
