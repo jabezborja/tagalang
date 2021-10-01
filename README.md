@@ -7,9 +7,6 @@ It is in the top of Python which is a high-level also so Pinoice is considered a
 
 ## Example
 ```
-baryabol<letra> pangalan: "Jabez"
-baryabol<numero> edad: 17
-
 baryabol na letra pangalan ay "Jabez"
 baryabol na numero edad ay 17
 
@@ -88,17 +85,19 @@ Types in Tagalang are not different in other languages, just the syntax.
 String -> letra
 Integer -> numero
 Boolean -> ano
+Array -> hanay
+None or Null -> Wala
 Any -> kahitano
 ```
 
 You can declare a variable with just this:
 ```
-baryabol name: "Nice"
+baryabol name ay "Nice"
 ```
 
 If you want to declare a specific type for the variable, you can:
 ```
-baryabol<letra> name: "Nice"
+baryabol na letra name ay "Nice"
 ```
 
 If the type is not agreed with the expression then it will throw an error.
@@ -110,18 +109,18 @@ Ipahayag is like `print()` in Python. Just simple.
 
 To print a string or letra
 ```
-ipahayag("Nice")
+ipahayag ang "Nice"
 ```
 
 To print a variable
 ```
-ipahayag(variable_name)
+ipahayag ang variable_name
 ```
 
 or
 
 ```
-ipahayag("Ako ay " + name)
+ipahayag ang "Ako si " + name
 ```
 
 # Changelog
