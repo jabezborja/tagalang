@@ -1,7 +1,11 @@
-from compiler.parser import Parser
-from compiler.lexer import Lexer
-import time
+#!/usr/bin/env python3
+
 import sys
+import time
+
+from compiler.lexer import Lexer
+from compiler.parser import Parser
+
 
 def main():
     arg = sys.argv[1]
