@@ -3,8 +3,8 @@
 import sys
 import time
 
-from compiler.lexer import Lexer
-from compiler.parser import Parser
+from interpreter.lexer import Lexer
+from interpreter.parser import Parser
 
 
 def main():
