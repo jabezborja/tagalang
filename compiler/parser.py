@@ -1,5 +1,5 @@
 
-from compiler.exceptions import SyntaxErrorException
+from compiler.exceptions import NameErrorException, SyntaxErrorException
 from compiler.lexer import Token
 from compiler.consts import KEYWORDS, TokenTypes
 
@@ -12,7 +12,7 @@ class Conductor:
 
     def use(self, name):
         try: return self.pocket[name]
-        except: return "Error"
+        except: NameErrorException(f"name '{name}' is not defined.", 0)
 
 class Parser: 
     def __init__(self, tokens):
