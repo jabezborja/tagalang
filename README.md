@@ -119,3 +119,25 @@ or
 
 ```
 ipahayag("Ako ay " + name)
+```
+
+# Changelog
+*Oct 1, 2021*
+- Baryabol callers (They can now call each other)
+- Better errors
+- Ready the Repo template structure for PyPi submission
+- Process timer
+
+*Sept 30, 2021*
+- Rewrote the entire language
+- Lexer
+- Parser
+- Baryabols (Variables)
+- Baryabols types (Letra (string), Numero (integer), Ano (Boolean), KahitAno (Any))
+
+*Sept 28, 2021*
+- Recontinue of the Project as Pinoice
+
+*Sept, 2020*
+- Start of the Project as TagaLag
+- No Lexers or Parsers, just poor old creaky language. Scanning method.
