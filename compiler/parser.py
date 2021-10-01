@@ -1,18 +1,8 @@
 
+from compiler.conductor import Conductor
 from compiler.exceptions import NameErrorException, SyntaxErrorException
 from compiler.lexer import Token
 from compiler.consts import KEYWORDS, TokenTypes
-
-class Conductor:
-    def __init__(self):
-        self.pocket = {}
-
-    def subscribe(self, name, val):
-        self.pocket[name] = val
-
-    def use(self, name):
-        try: return self.pocket[name]
-        except: NameErrorException(f"name '{name}' is not defined.", 0)
 
 class Parser: 
     def __init__(self, tokens):
@@ -53,9 +43,7 @@ class Parser:
         while self.curr_token[0] != TokenTypes.EOF:
             if self.curr_token[0] in TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[0]:
                 name, val = self.make_baryabols()
-
-                if 'Error' in name: SyntaxErrorException(self.curr_token[1], self.pos)
-                else: self.conductor.subscribe(name, val)
+                self.conductor.subscribe(name, val)
             elif self.curr_token[0] in TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[1]:
                 self.do_ipahayag()
             else:
@@ -78,7 +66,7 @@ class Parser:
             
             baryabol_name = self.curr_token[1]
             
-        else: return "Error", None
+        else: SyntaxErrorException(self.curr_token[1], self.pos)
             
         self.next()
 
