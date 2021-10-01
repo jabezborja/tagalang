@@ -1,8 +1,8 @@
 
 # Lexer's job is to turn the source code into tokens
 
-from compiler.exceptions import SyntaxErrorException
-from compiler.consts import KEYWORDS, Consts, TokenTypes
+from interpreter.exceptions import SyntaxErrorException
+from interpreter.consts import KEYWORDS, Consts, TokenTypes
 
 
 class Token:

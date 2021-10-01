@@ -1,8 +1,8 @@
 
-from compiler.conductor import Conductor
-from compiler.exceptions import NameErrorException, SyntaxErrorException
-from compiler.lexer import Token
-from compiler.consts import KEYWORDS, TokenTypes
+from interpreter.conductor import Conductor
+from interpreter.exceptions import NameErrorException, SyntaxErrorException
+from interpreter.lexer import Token
+from interpreter.consts import KEYWORDS, TokenTypes
 
 class Parser: 
     def __init__(self, tokens):

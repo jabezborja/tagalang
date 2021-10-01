@@ -1,4 +1,4 @@
-from compiler.exceptions import NameErrorException
+from interpreter.exceptions import NameErrorException
 
 
 class Conductor:
