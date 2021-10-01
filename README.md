@@ -10,9 +10,12 @@ It is in the top of Python which is a high-level also so Pinoice is considered a
 baryabol<letra> pangalan: "Jabez"
 baryabol<numero> edad: 17
 
-baryabol<kahitano> PangalanAtEdad: "Si " + pangalan + " ay " + edad + " na taong gulang"
+baryabol na letra pangalan ay "Jabez"
+baryabol na numero edad ay 17
 
-ipahayag(PangalanAtEdad)
+baryabol na kahitano PangalanAtEdad ay "Si " + pangalan + " ay " + edad + " na taong gulang"
+
+ipahayag ang PangalanAtEdad
 ```
 
 ### Equivalent to
@@ -122,6 +125,9 @@ ipahayag("Ako ay " + name)
 ```
 
 # Changelog
+*Oct 2, 2021*
+- Redesign the language
+
 *Oct 1, 2021*
 - Baryabol callers (They can now call each other)
 - Better errors
