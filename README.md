@@ -1,6 +1,9 @@
 # Pinoice - A Tagalog Programming Language
-## (Former TagaLang)
-A tagalog-based syntax programming language where Filipino programmers can play with. Pinoice is based on Python3 Programming Language.
+Pinoice is a rooftop-level tagalog-based syntax yet-procedural cautiously interpreted programming language where Filipino programmers can play with. 
+
+It is in the top of Python which is a high-level also so Pinoice is considered as the 'rooftop-level' programming language. It's design is for readability for Filipinos to understand how programming languages really works in their native language. With that being said, I will try my best to make the grammar more Tagalog.
+
+> The reason why Pinoice is made from scratch is to make the language allow more grammar to use and more easy to read as it will use more Filipino grammar (Hopefully it can.)
 
 ## Example
 ```
@@ -23,8 +26,8 @@ System.out.println(pangalanatedad)
 ```
 ```python
 # Python
-pangalan: str = "Jabez" 
-edad: int = 17
+pangalan = "Jabez" 
+edad = 17
 
 pangalanatedad = "Si " + pangalan + " ay " + edad + " na taong gulang"
 
@@ -32,7 +35,10 @@ print(pangalanatedad)
 ```
 
 ## Todos
-- [x] Baryabols (Variables)
+- [x] Lexer
+- [x] Parser
+    - [ ] Abstract Syntax Tree
+- [x] Baryabols (Baryabols doesn't use ASTs yet, but Ops works and I'm planning to rewrite the entire implementation.)
     - [x] Baryabol types
     - [x] Assign
 - [ ] Builtins
