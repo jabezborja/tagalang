@@ -112,7 +112,7 @@ ipahayag ang "Ako si " + name
 ```
 
 # Changelog
-*Oct 2, 2021*
+*Oct 5, 2021*
 - Ipahayag (print)
 - Itala (input)
 - Better exceptions
