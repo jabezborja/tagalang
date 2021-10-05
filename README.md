@@ -7,43 +7,31 @@ It is in the top of Python which is a high-level also so Pinoice is considered a
 
 ## Example
 ```
-baryabol na letra pangalan ay "Jabez"
-baryabol na numero edad ay 17
+baryabol na letra pangalan ay itala ang "pangalan? "
+baryabol na numero edad ay itala ang "edad? "
 
-baryabol na kahitano PangalanAtEdad ay "Si " + pangalan + " ay " + edad + " na taong gulang"
-
-ipahayag ang PangalanAtEdad
+ipahayag ang "Si " + pangalan + " ay " + edad + " na taong gulang"
 ```
 
 ### Equivalent to
-```java
-// Java
-String pangalan = "Jabez";
-int edad = 17
-String pangalanatedad = "Si " + pangalan = " ay " + edad + " na taong gulang"
-
-System.out.println(pangalanatedad)
-```
 ```python
 # Python
-pangalan = "Jabez" 
-edad = 17
+pangalan = input("pangalan? ") 
+edad = input("edad? ")
 
-pangalanatedad = "Si " + pangalan + " ay " + edad + " na taong gulang"
-
-print(pangalanatedad)
+print("Si " + pangalan + " ay " + edad + " na taong gulang")
 ```
 
 ## Todos
 - [x] Lexer
 - [x] Parser
-    - [ ] Abstract Syntax Tree
+    - [ ] AST
 - [x] Baryabols (Baryabols doesn't use ASTs yet, but Ops works and I'm planning to rewrite the entire implementation.)
     - [x] Baryabol types
     - [x] Assign
-- [ ] Builtins
-    - [ ] Ipahayag (print function)
-    - [ ] Lagdaan (input function)
+- [x] Builtins
+    - [x] Ipahayag (print function)
+    - [x] Itala (input function)
 - [ ] Kung-Ibapa statements (If-else statements)
 - [ ] Bawat loops (For loops)
 - [ ] Habang loops (While loops)
@@ -124,6 +112,12 @@ ipahayag ang "Ako si " + name
 ```
 
 # Changelog
+*Oct 2, 2021*
+- Ipahayag (print)
+- Itala (input)
+- Better exceptions
+- Code docs
+
 *Oct 2, 2021*
 - Redesign the language
 
