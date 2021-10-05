@@ -1,1 +1,4 @@
-ipahayag ang itala ang ">"
+baryabol pangalan ay itala ang "Unang pangalan? "
+baryabol apelyido ay itala ang "Apelyido? "
+
+ipahayag ang "Kumusta, " + pangalan + " " + apelyido + "!"

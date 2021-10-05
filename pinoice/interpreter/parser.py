@@ -66,7 +66,6 @@ class Parser:
                 print(val)
             elif self.curr_token[0] in TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[5]:
                 val = self.do_itala()
-                input(val)
             else:
                 self.next()
 
@@ -148,8 +147,6 @@ class Parser:
                     # Find the token in the conductor
                     # Returns a value of the baryabol
                     name, _ = self.evaluate_identifier(self.curr_token)
-
-                    print(name)
 
                     # If the type of the value is an integer
                     # submit it on int_prototype
