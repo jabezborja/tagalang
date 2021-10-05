@@ -7,8 +7,8 @@ baryabol na numero edad ay 17
 ```
 > The <na> is for determining the type of the variable as we have 6 types:
 > The letra, numero, ano, hanay, wala, and kahitano
-> that equals to String, Integer, Boolean, Array, None or Null and Any in other languages for
-> type safe purposes as I'm a big fan of Typescript haha.
+> that equals to String, Integer, Boolean, Array, None or Null and Any respectively in 
+> other languages for type safe purposes as I'm a big fan of Typescript haha.
 
 But it is ignorable as the default value of a 'baryabol' is 'kahitano' or Any.
 ```
@@ -37,7 +37,7 @@ baryabol listahan_ni_aling_cely ay ["100 sa milk", "200 sa gatas", "300 sa bear 
 
 sakada listahan_ni_aling_cely bilang lista tapos
     ipahayag ang "Binili ni aling cely ang " + lista
-patatapos
+pagtatapos
 ```
 
 # While loops
