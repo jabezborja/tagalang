@@ -40,6 +40,7 @@ class TokenTypes:
     TIMES = "interpreter.token.times"
     DIVIDE = "interpreter.token.divide"
     EQUALS = "interpreter.token.equals"
+    POW = "interpreter.token.pow"
     LEFT_PARENTHESIS = "interpreter.token.left_parenthesis"
     RIGHT_PARENTHESIS = "interpreter.token.right_parenthesis"
     LEFT_BRACKET = "interpreter.token.left_bracket"
@@ -55,10 +56,12 @@ KEYWORDS = [
     "baryabol",
     "ipahayag",
     "na",
-    "ay"
+    "ay",
+    "ang",
+    "itala"
 ]
 
 class Consts:
     DIGITS = "0123456789"
-    LETTERS = string.ascii_letters
+    LETTERS = "_:"+string.ascii_letters
     LETTERS_DIGITS = LETTERS + DIGITS

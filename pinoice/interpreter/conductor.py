@@ -10,4 +10,4 @@ class Conductor:
 
     def use(self, name):
         try: return self.pocket[name]
-        except: NameErrorException(f"name '{name}' is not defined.", 0)
+        except: NameErrorException(f"yung '{name}' ay hindi pa natutukoy.")

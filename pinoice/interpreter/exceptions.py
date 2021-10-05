@@ -1,7 +1,6 @@
 ERROR_TEMPLATE = """
-May natagpuang error banda sa line %s
+May natagpuang error:
     %s
-    ^
 %s: %s
 """
 
@@ -11,30 +10,29 @@ class ExceptionType:
     ...
 
 class Exception:
-    def __init__(self, type, text, messege, line):
+    def __init__(self, type, text, messege):
         self.type = type
         self.messege = messege
         self.text = text
-        self.line = line + 1
         self.exec()
         ...
         
     def exec(self):
         if self.type == ExceptionType.SyntaxError[1]:
-            msg = ERROR_TEMPLATE % (self.line, self.text, self.type, self.messege)
+            msg = ERROR_TEMPLATE % (self.text, self.type, self.messege)
         elif self.type == ExceptionType.NameError[1]:
-            msg = ERROR_TEMPLATE % (self.line, self.text, self.type, self.messege)
+            msg = ERROR_TEMPLATE % (self.text, self.type, self.messege)
         ...
 
         print(msg)
         exit()
 
 class SyntaxErrorException(Exception):
-    def __init__(self, text, line):
-        super().__init__(ExceptionType.SyntaxError[1], text, "invalid syntax", line)
+    def __init__(self, text):
+        super().__init__(ExceptionType.SyntaxError[1], text, "hindi valid na syntax")
         ...
 
 class NameErrorException(Exception):
-    def __init__(self, text, line):
-        super().__init__(ExceptionType.NameError[1], text, "not defined", line)
+    def __init__(self, text):
+        super().__init__(ExceptionType.NameError[1], text, "hindi natukoy")
         ...

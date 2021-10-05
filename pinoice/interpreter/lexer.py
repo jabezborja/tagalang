@@ -1,9 +1,7 @@
-
 # Lexer's job is to turn the source code into tokens
 
 from interpreter.exceptions import SyntaxErrorException
 from interpreter.consts import KEYWORDS, Consts, TokenTypes
-
 
 class Token:
     def __init__(self, type, value=None):
@@ -19,7 +17,7 @@ class Lexer:
         self.fs = fs
         self.pos = -1
 
-        self.curr_char = self.fs[self.pos]
+        self.curr_char = None
 
         self.next()
     
@@ -155,7 +153,7 @@ class Lexer:
         elif type_type == "kahitano":
             type = TokenTypes.KAHITANO
         else:
-            SyntaxErrorException(type_type, self.pos)
+            SyntaxErrorException(type_type)
 
         return Token(TokenTypes.TYPE, type)
 
