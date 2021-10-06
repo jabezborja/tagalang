@@ -1,4 +1,4 @@
-# Abstract Syntax Tree Nodes
+""" Abstract Syntax Tree Nodes """
 
 class NumberNode:
     def __init__(self, token):

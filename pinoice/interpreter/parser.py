@@ -42,8 +42,8 @@ class Parser:
     def init(self):
         """Tokens that are passed by the Lexer
         are splitted into two parts.
-        from ["TokenType:value"]
-        to [[TokenType, value]]"""
+        from ["TokenType:value", ...]
+        to [[TokenType, value], ...]"""
         self.tokens = [str(token).split(":") for token in self.tokens]
 
         self.next()
@@ -52,12 +52,15 @@ class Parser:
 
     def startExecution(self):
         
+        """Loop thru the generated tokens of the Lexer
+        until the EOF (End-of-File)
+        curr_token = [TokenType, value]"""
         while self.curr_token[0] != TokenTypes.EOF:
-            # If the keyword is a 'baryabol'
+            """If the token is a 'baryabol'"""
             if self.curr_token[0] in TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[0]:
-                # baryabol name and value.
+                """returns baryabol name and value."""
                 name, val = self.make_baryabols()
-                # Submit the baryabol into conductor for future use.
+                """Submit the baryabol into conductor for future use."""
                 self.conductor.subscribe(name, val)
 
             # Builtins
@@ -69,27 +72,30 @@ class Parser:
             else:
                 self.next()
 
-    # Returns the baryabol name with the value.
+    """Returns the baryabol name with the value."""
     def make_baryabols(self):
         baryabol_name = ""
         baryabol_value = None
         baryabol_type = None
 
-        # Get the Baryabol type   
+        """Get the Baryabol type"""
         if self.future()[0] == TokenTypes.TYPE:
             self.next()
 
             baryabol_type = self.curr_token[1]
 
-        else: baryabol_type = TokenTypes.KAHITANO
+        else:
+            baryabol_type = TokenTypes.KAHITANO
 
-        # Get the Baryabol name
+        """Get the Baryabol name"""
         if self.future()[0] == TokenTypes.IDENTIFIER:
             self.next()
             
             baryabol_name = self.curr_token[1]
             
-        else: SyntaxErrorException("May ineexpect na pangalan ng baryabol pero walang nahanap")
+        else:
+            """If there is no identifier, it may be a KEYWORD, so throw an error"""
+            SyntaxErrorException("May ineexpect na pangalan ng baryabol pero walang nahanap")
             
         self.next()
 
@@ -120,7 +126,11 @@ class Parser:
 
         return tala
 
-    # Returns value
+    """Returns evaluated value that checked if it's a baryabol or just a letter
+    after the given parameter 'entry_identifier' TokenType.
+    
+    If the identifier is seen in the conductor, then return the value. If the
+    letra, just return the letra. If a integer or numero with operations, return the answer."""
     def get_value(self, entry_identifier, val_type=TokenTypes.KAHITANO):
         value = None
 
@@ -133,24 +143,24 @@ class Parser:
             # Integer values
             int_prototype = 0
 
-            # Loop to the tokens after 'proc_identifier' until the next line or end of file (EOF)
+            """Loop to the tokens after 'proc_identifier' until the next line or end of file (EOF)"""
             while self.curr_token[0] != TokenTypes.EOF and self.curr_token[0] != TokenTypes.NEWLINE:
 
-                # If the token is itala
+                """If the token is a KEYWORD"""
                 if self.curr_token[0] == TokenTypes.KEYWORD:
+                    """If the token is 'itala'"""
                     if self.curr_token[1] == KEYWORDS[5]:
                         prototype.append(self.do_itala())
 
-                # If the token is an identifier
                 elif self.curr_token[0] == TokenTypes.IDENTIFIER:
 
-                    # Find the token in the conductor
-                    # Returns a value of the baryabol
+                    """Find the token in the conductor
+                    Returns a value of the baryabol"""
                     name, _ = self.evaluate_identifier(self.curr_token)
 
-                    # If the type of the value is an integer
-                    # submit it on int_prototype
-                    # instead submit it on prototype
+                    """If the type of the value is an integer
+                    submit it on int_prototype
+                    instead submit it on prototype"""
                     if type(name) == int: int_prototype += int(name)
                     else: prototype.append(name)
                     
