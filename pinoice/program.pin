@@ -1,8 +1,1 @@
-= In python, 
-= pangalan = input("Unang pangalan? ")
-baryabol pangalan ay itala ang "Unang pangalan? "
-baryabol apelyido ay itala ang "Apelyido? "
-
-= In python,
-= print(f"Kumusta, {pangalan} {apelyido}!")
-ipahayag ang "Kumusta, " + pangalan + " " + apelyido + "!"
+2 + 5 * 2

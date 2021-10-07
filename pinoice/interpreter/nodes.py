@@ -5,7 +5,7 @@ class NumberNode:
         self.token = token
 
     def __repr__(self):
-        return f'({self.token})'
+        return f'{self.token}'
     
 class BinOpNode:
     def __init__(self, left, token, right):
@@ -14,7 +14,7 @@ class BinOpNode:
         self.right = right
 
     def __repr__(self):
-        return f'({self.left} : {self.token} : {self.right})'
+        return f'{self.left} : {self.token} : {self.right}'
 
 class UnaryOpNode:
 	def __init__(self, op_tok, node):
@@ -22,14 +22,14 @@ class UnaryOpNode:
 		self.node = node
 
 	def __repr__(self):
-		return f'({self.op_tok}, {self.node})'
+		return f'{self.op_tok}, {self.node}'
 
 class BaryabolNode:
     def __init__(self, baryabol_name):
         self.baryabol_name = baryabol_name
 
     def __repr__(self):
-        return f'({self.baryabol_name})'
+        return f'{self.baryabol_name}'
 
 
 class LetraNode:
@@ -37,4 +37,4 @@ class LetraNode:
         self.tok = tok
 
     def __repr__(self):
-        return f'({self.tok})'
+        return f'{self.tok}'
