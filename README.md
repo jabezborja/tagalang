@@ -7,8 +7,8 @@ It is in the top of Python which is a high-level also so Pinoice is considered a
 
 ## Example
 ```
-baryabol na letra pangalan ay itala ang "pangalan? "
-baryabol na numero edad ay itala ang "edad? "
+baryabol pangalan ay "Jabez"
+baryabol edad ay 17
 
 ipahayag ang "Si " + pangalan + " ay " + edad + " na taong gulang"
 ```
@@ -16,22 +16,28 @@ ipahayag ang "Si " + pangalan + " ay " + edad + " na taong gulang"
 ### Equivalent to
 ```python
 # Python
-pangalan = input("pangalan? ") 
-edad = input("edad? ")
+pangalan = "Jabez"
+edad = 17
 
-print("Si " + pangalan + " ay " + edad + " na taong gulang")
+print("Si " + pangalan + " ay " + str(edad) + " na taong gulang")
 ```
 
 ## Todos
 - [x] Lexer
 - [x] Parser
-    - [ ] AST
-- [x] Baryabols (Baryabols doesn't use ASTs yet, but Ops works and I'm planning to rewrite the entire implementation.)
-    - [x] Baryabol types
+    - [x] Parse Tree (AST)
+- [x] Baryabols
+    - [x] AST Node
     - [x] Assign
+    - [x] Access
+    - [ ] Types
 - [x] Builtins
     - [x] Ipahayag (print function)
-    - [x] Itala (input function)
+        - [x] AST Node
+        - [x] Interpreter Visitor
+    - [ ] Itala (input function) _Currently on my stash_
+        - [x] AST Node
+        - [ ] Interpreter Visitor
 - [ ] Kung-Ibapa statements (If-else statements)
 - [ ] Bawat loops (For loops)
 - [ ] Habang loops (While loops)

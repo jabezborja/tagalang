@@ -1,25 +1,5 @@
 import string
 
-TOKEN_TYPES = {
-    "letra": "interpreter.token.letra",
-    "numero": "interpreter.token.numero",
-    "identifier": "interpreter.token.identifier",
-    "keyword": "interpreter.token.keyword",
-    "plus": "interpreter.token.plus",
-    "minus": "interpreter.token.minus",
-    "times": "interpreter.token.times",
-    "divide":"interpreter.token.divide",
-    "equals": "interpreter.token.equals",
-    "left_parenthesis": "interpreter.token.left_parenthesis",
-    "right_parenthesis": "interpreter.token.right_parenthesis",
-    "left_bracket": "interpreter.token.left_bracket",
-    "right_bracket": "interpreter.token.right_bracker",
-    "double_equals": "interpreter.token.double_equals",
-    "comma": "interpreter.token.comma",
-    "newline": "interpreter.token.newline",
-    "eof": "interpreter.token.eof",
-}
-
 class TokenTypes:
 
     # String

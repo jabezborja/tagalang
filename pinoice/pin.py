@@ -12,12 +12,21 @@ from interpreter.conductor import Conductor
 def main():
     arg = sys.argv[1]
     
+    processtime_in_ms = time.time() * 1000
+
     with open(arg) as fs:
-        processtime_in_ms = time.time() * 1000
+
+        # Generate Tokens
         lexer = Lexer(fs.read()).generate_tokens()
+
+        # Generate AST
         parser = Parser(lexer).parse()
+
         conductor = Conductor()
+
+        # Interpret AST
         Interpreter(parser, conductor).interpret()
+
         print(f"\nPROCESS TIME: {time.time() * 1000 - processtime_in_ms}ms")
         
 if __name__ == '__main__':
