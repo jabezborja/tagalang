@@ -53,8 +53,11 @@ class Interpreter(NodeVisitor):
         self.conductor.subscribe(baryabol_name, val)
         return val
 
+    def visit_IpahayagNode(self, node):
+        ipapahayag = self.visit(node.ipapahayag)
+        print(ipapahayag)
+        
     def interpret(self):
         while self.curr_parser != None:
-            interpreted = self.visit(self.curr_parser)
-            print(interpreted)
+            self.visit(self.curr_parser)
             self.next()

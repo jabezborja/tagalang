@@ -25,9 +25,9 @@ class Lexer:
         self.pos += 1
         self.curr_char = self.fs[self.pos] if self.pos < len(self.fs) else None
 
-    def future(self):
+    def future(self, jump=1):
         pos = self.pos
-        pos += 1
+        pos += jump
 
         return self.fs[pos]
     
@@ -46,8 +46,7 @@ class Lexer:
                 tokens.append(self.generate_letra())
             elif self.curr_char in 'a' and self.future() in 'y':
                 tokens.append(Token(TokenTypes.EQUALS))
-                self.next()
-                self.next()
+                for _ in range(2): self.next()
             elif self.curr_char in '+':
                 tokens.append(Token(TokenTypes.PLUS))
                 self.next()
@@ -75,6 +74,9 @@ class Lexer:
             elif self.curr_char in 'n' and self.future() in 'a':
                 tokens.append(self.generate_type())
                 self.next()
+            elif self.curr_char in 'a' and self.future() in 'n' and self.future(jump=2) in 'g':
+                tokens.append(Token(TokenTypes.PROCEED_IDENTIFIER))
+                for _ in range(3): self.next()
             elif self.curr_char in ',':
                 tokens.append(Token(TokenTypes.COMMA))
                 self.next()

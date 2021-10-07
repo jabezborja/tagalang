@@ -4,7 +4,8 @@ from interpreter.nodes import (
     BinOpNode,
     BaryabolAccNode,
     BaryabolAssNode,
-    LetraNode
+    LetraNode,
+    IpahayagNode
 )
 from interpreter.consts import KEYWORDS
 from interpreter.exceptions import SyntaxErrorException
@@ -23,7 +24,7 @@ class Parser:
 
     def parse(self):
         while self.curr_token[0] != TokenTypes.EOF:
-            if self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] in KEYWORDS[0]:
+            if self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[0]:
                 self.next()
 
                 if self.curr_token[0] != TokenTypes.IDENTIFIER:
@@ -40,6 +41,17 @@ class Parser:
                 express = self.expr()
 
                 self.parses.append(BaryabolAssNode(baryabol_name, express))
+            elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[1]:
+                self.next()
+
+                if self.curr_token[0] != TokenTypes.PROCEED_IDENTIFIER:
+                    return SyntaxErrorException("May ineexpect na 'ang' pero walang mahanap.")
+                
+                self.next()
+
+                ipapahayag = self.expr()
+
+                self.parses.append(IpahayagNode(ipapahayag))
             self.next()
 
         return self.parses

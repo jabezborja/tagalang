@@ -2,6 +2,13 @@
 
 class AST: ...
 
+class LetraNode(AST):
+    def __init__(self, token):
+        self.token = token
+
+    def __repr__(self):
+        return f'{self.token}'
+
 class NumberNode(AST):
     def __init__(self, token):
         self.token = token
@@ -31,7 +38,7 @@ class BaryabolAccNode(AST):
         self.baryabol_name = baryabol_name
 
     def __repr__(self):
-        return f'{self.baryabol_name} : {self.expression}'
+        return f'{self.baryabol_name}'
 
 class BaryabolAssNode(AST):
     def __init__(self, baryabol_name, expression):
@@ -41,10 +48,9 @@ class BaryabolAssNode(AST):
     def __repr__(self):
         return f'{self.baryabol_name} : {self.expression}'
 
-
-class LetraNode(AST):
-    def __init__(self, token):
-        self.token = token
+class IpahayagNode(AST):
+    def __init__(self, ipapahayag):
+        self.ipapahayag = ipapahayag
 
     def __repr__(self):
-        return f'{self.token}'
+        return f'{self.ipapahayag}'

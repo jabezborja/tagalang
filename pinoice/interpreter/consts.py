@@ -35,6 +35,8 @@ class TokenTypes:
     KEYWORD = "interpreter.token.keyword"
     TYPE = "interpreter.token.type"
 
+    PROCEED_IDENTIFIER = "interpreter.token.proc_ident"
+
     PLUS = "interpreter.token.plus"
     MINUS = "interpreter.token.minus"
     TIMES = "interpreter.token.times"
