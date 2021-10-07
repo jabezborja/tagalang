@@ -1,13 +1,15 @@
 """ Abstract Syntax Tree Nodes """
 
-class NumberNode:
+class AST: ...
+
+class NumberNode(AST):
     def __init__(self, token):
         self.token = token
 
     def __repr__(self):
         return f'{self.token}'
     
-class BinOpNode:
+class BinOpNode(AST):
     def __init__(self, left, token, right):
         self.left = left
         self.token = token
@@ -16,7 +18,7 @@ class BinOpNode:
     def __repr__(self):
         return f'{self.left} : {self.token} : {self.right}'
 
-class UnaryOpNode:
+class UnaryOpNode(AST):
 	def __init__(self, op_tok, node):
 		self.op_tok = op_tok
 		self.node = node
@@ -24,17 +26,25 @@ class UnaryOpNode:
 	def __repr__(self):
 		return f'{self.op_tok}, {self.node}'
 
-class BaryabolNode:
+class BaryabolAccNode(AST):
     def __init__(self, baryabol_name):
         self.baryabol_name = baryabol_name
 
     def __repr__(self):
-        return f'{self.baryabol_name}'
+        return f'{self.baryabol_name} : {self.expression}'
 
-
-class LetraNode:
-    def __init__(self, tok):
-        self.tok = tok
+class BaryabolAssNode(AST):
+    def __init__(self, baryabol_name, expression):
+        self.baryabol_name = baryabol_name
+        self.expression = expression
 
     def __repr__(self):
-        return f'{self.tok}'
+        return f'{self.baryabol_name} : {self.expression}'
+
+
+class LetraNode(AST):
+    def __init__(self, token):
+        self.token = token
+
+    def __repr__(self):
+        return f'{self.token}'

@@ -6,6 +6,7 @@ import time
 from interpreter.lexer import Lexer
 from interpreter.parser import Parser
 from interpreter.interpreter import Interpreter
+from interpreter.conductor import Conductor
 
 
 def main():
@@ -13,8 +14,10 @@ def main():
     
     with open(arg) as fs:
         processtime_in_ms = time.time() * 1000
-        result = Interpreter(Parser(Lexer(fs.read()).generate_tokens()).parse()).interpret()
-        print(result)
+        lexer = Lexer(fs.read()).generate_tokens()
+        parser = Parser(lexer).parse()
+        conductor = Conductor()
+        Interpreter(parser, conductor).interpret()
         print(f"\nPROCESS TIME: {time.time() * 1000 - processtime_in_ms}ms")
         
 if __name__ == '__main__':

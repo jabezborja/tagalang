@@ -1,18 +1,28 @@
 from interpreter.consts import TokenTypes
+from interpreter.exceptions import SyntaxErrorException
 
 class NodeVisitor(object):
     def visit(self, node):
         method_name = 'visit_' + type(node).__name__
-        visitor = getattr(self, method_name, self.generic_visit)
+        visitor = getattr(self, method_name, self.invalid_visit)
         return visitor(node)
 
-    def generic_visit(self, node):
-        raise Exception('No visit_{} method'.format(type(node).__name__))
+    def invalid_visit(self, node):
+        raise Exception(f"No visit_{type(node).__name__} method")
 
 
 class Interpreter(NodeVisitor):
-    def __init__(self, parser):
-        self.parser = parser
+    def __init__(self, parsers, conductor):
+        self.pos = -1
+        self.parsers = parsers
+        self.curr_parser = None
+        self.conductor = conductor
+
+        self.next()
+
+    def next(self):
+        self.pos += 1
+        self.curr_parser = self.parsers[self.pos] if self.pos < len(self.parsers) else None
 
     def visit_BinOpNode(self, node):
         if node.token[0] == TokenTypes.PLUS:
@@ -24,8 +34,27 @@ class Interpreter(NodeVisitor):
         elif node.token[0] == TokenTypes.DIVIDE:
             return self.visit(node.left) / self.visit(node.right)
 
+    def visit_LetraNode(self, node):
+        return node.token[1]
+
     def visit_NumberNode(self, node):
         return int(node.token[1])
+    
+    def visit_BaryabolAccNode(self, node):
+        baryabol_name = node.baryabol_name
+        val = self.conductor.use(baryabol_name[1])
+
+        return val
+
+    def visit_BaryabolAssNode(self, node):
+        baryabol_name = node.baryabol_name
+        val = self.visit(node.expression)
+
+        self.conductor.subscribe(baryabol_name, val)
+        return val
 
     def interpret(self):
-        return self.visit(self.parser)
+        while self.curr_parser != None:
+            interpreted = self.visit(self.curr_parser)
+            print(interpreted)
+            self.next()

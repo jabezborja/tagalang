@@ -1,6 +1,5 @@
 from interpreter.exceptions import NameErrorException
 
-"""Conductor is the symbol table."""
 class Conductor:
     def __init__(self):
         self.pocket = {}
