@@ -17,15 +17,19 @@ def main():
     with open(arg) as fs:
 
         # Generate Tokens
-        lexer = Lexer(fs.read()).generate_tokens()
+        lexer = Lexer(fs.read())
+        tokens = lexer.generate_tokens()
 
         # Generate AST
-        parser = Parser(lexer).parse()
+        parser = Parser(tokens)
+        ast = parser.parse()
 
+        # Global conductor instance
         conductor = Conductor()
 
         # Interpret AST
-        Interpreter(parser, conductor).interpret()
+        interpreter = Interpreter(ast, conductor)
+        interpreter.interpret()
 
         print(f"\nPROCESS TIME: {time.time() * 1000 - processtime_in_ms}ms")
         

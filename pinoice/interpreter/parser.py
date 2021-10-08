@@ -1,9 +1,9 @@
 from interpreter.consts import TokenTypes
 from interpreter.nodes import (
-    NumberNode,
+    NumeroNode,
     BinOpNode,
-    BaryabolAccNode,
-    BaryabolAssNode,
+    BaryabolAccessNode,
+    BaryabolAssignNode,
     LetraNode,
     IpahayagNode
 )
@@ -23,38 +23,47 @@ class Parser:
         self.curr_token = self.tokens[self.pos] if self.pos < len(self.tokens) else None
 
     def parse(self):
+
+        # Loop through the tokens until the end of file.
         while self.curr_token[0] != TokenTypes.EOF:
             if self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[0]:
-                self.next()
-
-                if self.curr_token[0] != TokenTypes.IDENTIFIER:
-                    return SyntaxErrorException("May ineexpect na identifier, pero walang mahanap.")
-
-                baryabol_name = self.curr_token[1]
-                self.next() 
-
-                if self.curr_token[0] != TokenTypes.EQUALS:
-                    return SyntaxErrorException("May ineexpect na 'ay', pero walang mahanap.")
-
-                self.next()
-
-                express = self.expr()
-
-                self.parses.append(BaryabolAssNode(baryabol_name, express))
+                self.baryabol()
             elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[1]:
+                self.ipahayag()
+            else:
                 self.next()
-
-                if self.curr_token[0] != TokenTypes.PROCEED_IDENTIFIER:
-                    return SyntaxErrorException("May ineexpect na 'ang' pero walang mahanap.")
-                
-                self.next()
-
-                ipapahayag = self.expr()
-
-                self.parses.append(IpahayagNode(ipapahayag))
-            self.next()
 
         return self.parses
+
+    def baryabol(self):
+        self.next()
+
+        if self.curr_token[0] != TokenTypes.IDENTIFIER:
+            return SyntaxErrorException("May ineexpect na identifier, pero walang mahanap.")
+
+        baryabol_name = self.curr_token[1]
+        self.next() 
+
+        if self.curr_token[0] != TokenTypes.EQUALS:
+            return SyntaxErrorException("May ineexpect na 'ay', pero walang mahanap.")
+
+        self.next()
+
+        express = self.expr()
+
+        self.parses.append(BaryabolAssignNode(baryabol_name, express))
+
+    def ipahayag(self):
+        self.next()
+
+        if self.curr_token[0] != TokenTypes.PROCEED_IDENTIFIER:
+            return SyntaxErrorException("May ineexpect na 'ang' pero walang mahanap.")
+        
+        self.next()
+
+        ipapahayag = self.expr()
+
+        self.parses.append(IpahayagNode(ipapahayag))
 
     def expr(self):
         node = self.term()
@@ -93,11 +102,11 @@ class Parser:
         
         if token[0] == TokenTypes.NUMERO:
             self.next()
-            return NumberNode(token)
+            return NumeroNode(token)
         elif token[0] == TokenTypes.LETRA:
             return LetraNode(token)
         elif token[0] == TokenTypes.IDENTIFIER:
-            return BaryabolAccNode(token)
+            return BaryabolAccessNode(token)
         elif token[0] == TokenTypes.LEFT_PARENTHESIS:
             self.next()
             node = self.expr()
@@ -113,6 +122,6 @@ class Parser:
         token = self.curr_token
 
         if token[0] == TokenTypes.IDENTIFIER:
-            return BaryabolAccNode(token)
+            return BaryabolAccessNode(token)
 
         

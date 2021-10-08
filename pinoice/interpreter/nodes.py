@@ -9,7 +9,7 @@ class LetraNode(AST):
     def __repr__(self):
         return f'{self.token}'
 
-class NumberNode(AST):
+class NumeroNode(AST):
     def __init__(self, token):
         self.token = token
 
@@ -33,14 +33,14 @@ class UnaryOpNode(AST):
 	def __repr__(self):
 		return f'{self.op_tok}, {self.node}'
 
-class BaryabolAccNode(AST):
+class BaryabolAccessNode(AST):
     def __init__(self, baryabol_name):
         self.baryabol_name = baryabol_name
 
     def __repr__(self):
         return f'{self.baryabol_name}'
 
-class BaryabolAssNode(AST):
+class BaryabolAssignNode(AST):
     def __init__(self, baryabol_name, expression):
         self.baryabol_name = baryabol_name
         self.expression = expression

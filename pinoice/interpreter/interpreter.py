@@ -37,16 +37,16 @@ class Interpreter(NodeVisitor):
     def visit_LetraNode(self, node):
         return node.token[1]
 
-    def visit_NumberNode(self, node):
+    def visit_NumeroNode(self, node):
         return int(node.token[1])
     
-    def visit_BaryabolAccNode(self, node):
+    def visit_BaryabolAccessNode(self, node):
         baryabol_name = node.baryabol_name
         val = self.conductor.use(baryabol_name[1])
 
         return val
 
-    def visit_BaryabolAssNode(self, node):
+    def visit_BaryabolAssignNode(self, node):
         baryabol_name = node.baryabol_name
         val = self.visit(node.expression)
 
