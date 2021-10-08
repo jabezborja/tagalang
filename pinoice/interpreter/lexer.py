@@ -54,7 +54,7 @@ class Lexer:
                 tokens.append(Token(TokenTypes.MINUS))
                 self.next()
             elif self.curr_char in '*':
-                tokens.append(Token(TokenTypes.TIMES))
+                tokens.append(Token(TokenTypes.MULTIPLY))
                 self.next()
             elif self.curr_char in '/':
                 tokens.append(Token(TokenTypes.DIVIDE))

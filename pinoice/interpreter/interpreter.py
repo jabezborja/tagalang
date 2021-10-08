@@ -29,7 +29,7 @@ class Interpreter(NodeVisitor):
             return self.visit(node.left) + self.visit(node.right)
         elif node.token[0] == TokenTypes.MINUS:
             return self.visit(node.left) - self.visit(node.right)
-        elif node.token[0] == TokenTypes.TIMES:
+        elif node.token[0] == TokenTypes.MULTIPLY:
             return self.visit(node.left) * self.visit(node.right)
         elif node.token[0] == TokenTypes.DIVIDE:
             return self.visit(node.left) / self.visit(node.right)

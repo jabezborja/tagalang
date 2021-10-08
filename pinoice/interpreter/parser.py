@@ -85,10 +85,10 @@ class Parser:
     def term(self):
         node = self.factor()
 
-        while self.curr_token[0] in (TokenTypes.TIMES, TokenTypes.DIVIDE):
+        while self.curr_token[0] in (TokenTypes.MULTIPLY, TokenTypes.DIVIDE):
             token = self.curr_token
 
-            if token[0] == TokenTypes.TIMES:
+            if token[0] == TokenTypes.MULTIPLY:
                 self.next()
             elif token[0] == TokenTypes.DIVIDE:
                 self.next()

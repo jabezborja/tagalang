@@ -19,7 +19,7 @@ class TokenTypes:
 
     PLUS = "interpreter.token.plus"
     MINUS = "interpreter.token.minus"
-    TIMES = "interpreter.token.times"
+    MULTIPLY = "interpreter.token.multiply"
     DIVIDE = "interpreter.token.divide"
     EQUALS = "interpreter.token.equals"
     POW = "interpreter.token.pow"
