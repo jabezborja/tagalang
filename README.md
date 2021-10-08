@@ -38,10 +38,13 @@ print("Si " + pangalan + " ay " + str(edad) + " na taong gulang")
     - [ ] Itala (input function) _Currently on my stash_
         - [x] AST Node
         - [ ] Interpreter Visitor
-- [ ] Kung-Ibapa statements (If-else statements)
+- [x] Kung-Ibapa statements (If-else statements)
+    - [x] Kung (If)
+    - [ ] Ibapa (Else if)
+    - [ ] Iba (Else)
+- [x] Tukuyin (Functions)
 - [ ] Bawat loops (For loops)
 - [ ] Habang loops (While loops)
-- [ ] Makina (Functions)
 
 # Installation
 
