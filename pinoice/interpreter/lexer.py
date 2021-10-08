@@ -77,8 +77,14 @@ class Lexer:
                 tokens.append(self.generate_type())
                 self.next()
             elif self.curr_char in 'a' and self.future() in 'n' and self.future(jump=2) in 'g':
-                tokens.append(Token(TokenTypes.PROCEED_IDENTIFIER))
+                tokens.append(Token(TokenTypes.ANG))
                 for _ in range(3): self.next()
+            elif self.curr_char in 't' and self.future() in 'a' and self.future(jump=2) in 'p' and self.future(jump=3) in 'o' and self.future(jump=4) in 's':
+                tokens.append(Token(TokenTypes.TAPOS))
+                for _ in range(5): self.next()
+            elif self.curr_char in 'p' and self.future() in 'a' and self.future(jump=2) in 'g' and self.future(jump=3) in 't' and self.future(jump=4) in 'a' and self.future(jump=5) in 't' and self.future(jump=6) in 'a' and self.future(jump=7) in 'p' and self.future(jump=8) in 'o' and self.future(jump=9) in 's':
+                tokens.append(Token(TokenTypes.PAGTATAPOS))
+                for _ in range(9): self.next()
             elif self.curr_char in ',':
                 tokens.append(Token(TokenTypes.COMMA))
                 self.next()

@@ -54,3 +54,14 @@ class IpahayagNode(AST):
 
     def __repr__(self):
         return f'{self.ipapahayag}'
+
+class KungNode(AST):
+    def __init__(self, expressions, condition, body):
+        self.expressions = expressions
+        self.condition = condition
+        self.body = body
+
+    def __repr__(self):
+        return f'{self.condition}'
+
+

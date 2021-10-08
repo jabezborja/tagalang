@@ -1,5 +1,6 @@
 from interpreter.consts import TokenTypes
 from interpreter.exceptions import SyntaxErrorException
+from interpreter.parser import Parser
 
 class NodeVisitor(object):
     def visit(self, node):
@@ -56,7 +57,23 @@ class Interpreter(NodeVisitor):
     def visit_IpahayagNode(self, node):
         ipapahayag = self.visit(node.ipapahayag)
         print(ipapahayag)
-        
+
+    def visit_KungNode(self, node):
+        expressions = node.expressions
+        condition = node.condition
+        body = node.body
+        exprs = []
+
+        for expression in expressions:
+            expr = self.visit(expression)
+            exprs.append(expr)
+
+        if condition == TokenTypes.EQUALS:
+            if exprs[0] == exprs[1]:
+                parser = Parser(body, split=False).parse()
+                isolated_interpreter = Interpreter(parser, self.conductor)
+                isolated_interpreter.interpret()
+
     def interpret(self):
         while self.curr_parser != None:
             self.visit(self.curr_parser)

@@ -5,14 +5,15 @@ from interpreter.nodes import (
     BaryabolAccessNode,
     BaryabolAssignNode,
     LetraNode,
-    IpahayagNode
+    IpahayagNode,
+    KungNode
 )
 from interpreter.consts import KEYWORDS
 from interpreter.exceptions import SyntaxErrorException
 
 class Parser: 
-    def __init__(self, tokens):
-        self.tokens = [str(token).split(":") for token in tokens]
+    def __init__(self, tokens, split=True):
+        self.tokens = [str(token).split(":") for token in tokens] if split else tokens
         self.pos = -1
         self.curr_token = None
         self.parses = []
@@ -25,11 +26,13 @@ class Parser:
     def parse(self):
 
         # Loop through the tokens until the end of file.
-        while self.curr_token[0] != TokenTypes.EOF:
+        while self.curr_token[0] != TokenTypes.EOF and self.curr_token[0] != TokenTypes.PAGTATAPOS:
             if self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[0]:
                 self.baryabol()
             elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[1]:
                 self.ipahayag()
+            elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[2]:
+                self.kung_statement()
             else:
                 self.next()
 
@@ -56,7 +59,7 @@ class Parser:
     def ipahayag(self):
         self.next()
 
-        if self.curr_token[0] != TokenTypes.PROCEED_IDENTIFIER:
+        if self.curr_token[0] != TokenTypes.ANG:
             return SyntaxErrorException("May ineexpect na 'ang' pero walang mahanap.")
         
         self.next()
@@ -64,6 +67,36 @@ class Parser:
         ipapahayag = self.expr()
 
         self.parses.append(IpahayagNode(ipapahayag))
+
+    def kung_statement(self):
+        self.next()
+
+        expressions = []
+        condition = None
+        body = []
+
+        expressions.append(self.expr())
+
+        while self.curr_token[0] != TokenTypes.TAPOS:
+            if self.curr_token[0] == TokenTypes.EQUALS:
+                condition = TokenTypes.EQUALS
+                self.next()
+                expressions.append(self.expr())
+            elif self.curr_token[0] == TokenTypes.IDENTIFIER:
+                self.next()
+            elif self.curr_token[0] == TokenTypes.LETRA:
+                self.next()
+            else:
+                SyntaxErrorException("May ineexpect na mga expresyon pero walang mahanap.")
+
+        self.next()
+
+        while self.curr_token[0] != TokenTypes.PAGTATAPOS:
+            self.next()
+            
+            body.append(self.curr_token)
+
+        self.parses.append(KungNode(expressions, condition, body))
 
     def expr(self):
         node = self.term()
@@ -112,6 +145,7 @@ class Parser:
             node = self.expr()
             self.next()
             return node
+            
 
         return self.pow()
 

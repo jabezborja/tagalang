@@ -1,4 +1,10 @@
-baryabol nice ay 5 + 5 * 2
+baryabol pangalan ay "Jabez"
+baryabol edad ay 17
 
-@ I-priprint ang nice
-ipahayag ang nice
+kung pangalan ay "Jabez" tapos
+    ipahayag ang "Kumusta, Jabez"
+
+    kung edad ay 17 tapos
+        ipahayag ang "Nice, 17 na siya"
+    pagtatapos
+pagtatapos

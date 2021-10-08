@@ -15,7 +15,9 @@ class TokenTypes:
     KEYWORD = "interpreter.token.keyword"
     TYPE = "interpreter.token.type"
 
-    PROCEED_IDENTIFIER = "interpreter.token.proc_ident"
+    TAPOS = "interpreter.token.tapos"
+    PAGTATAPOS = "interpreter.token.pagtatapos"
+    ANG = "interpreter.token.ang"
 
     PLUS = "interpreter.token.plus"
     MINUS = "interpreter.token.minus"
@@ -37,10 +39,11 @@ class TokenTypes:
 KEYWORDS = [
     "baryabol",
     "ipahayag",
+    "kung",
     "na",
     "ay",
+    "itala",
     "ang",
-    "itala"
 ]
 
 class Consts:
