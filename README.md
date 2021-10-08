@@ -68,7 +68,7 @@ py pin.py program.tag
 And it should interpret the program.
 
 # How To Use
-> There is no Functions, If-else, and loops yet.
+> There is no Functions, and loops yet.
 
 ### Variables
 Variables in TagaLang are called Baryabols (well, because it is tagalog.) It works like Javascript at some point where
@@ -117,7 +117,35 @@ or
 ipahayag ang "Ako si " + name
 ```
 
+### Kung Statements
+Just like other languages, we have Kung statements too.
+
+Kung statements works like Lua programming with 'THEN' and 'END'
+
+But in Pinoice, it is 'TAPOS' and 'PAGTATAPOS'
+
+To perform a kung statements
+```
+kung <condition> tapos
+    ...
+pagtatapos
+```
+
+Just basic as that. Let's try to make something with 'Kung Statements'
+```
+baryabol pangalan ay "Jabez"
+
+kung pangalan ay "Jabez" tapos
+    ipahayag ang "Kumusta, Jabez!"
+pagtatapos
+```
+
+And it works like a charm. You can try it yourself!
+
 # Changelog
+*Oct 8, 2021*
+- Kung statements (If statements)
+
 *Oct 5, 2021*
 - Ipahayag (print)
 - Itala (input)
