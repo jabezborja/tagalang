@@ -38,6 +38,8 @@ class Lexer:
             if self.curr_char in '\n':
                 tokens.append(Token(TokenTypes.NEWLINE))
                 self.next()
+            elif self.curr_char in '@':
+                self.skip_line()
             elif self.curr_char in ' ':
                 self.next()
             elif self.curr_char in Consts.DIGITS:
@@ -158,4 +160,12 @@ class Lexer:
             SyntaxErrorException(type_type)
 
         return Token(TokenTypes.TYPE, type)
+
+    def skip_line(self):
+        self.next()
+
+        while self.curr_char != '\n':
+            self.next()
+
+        self.next()
 
