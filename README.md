@@ -86,9 +86,7 @@ And it should interpret the program.
 > There is no Functions, and loops yet.
 
 ### Variables
-Variables in TagaLang are called Baryabols (well, because it is tagalog.) It works like Javascript at some point where
-you can declare a variable with no specific type of declare with specific type.
-
+Variables in Pinoice are called Baryabols (well, because it is tagalog).
 Types in Tagalang are not different in other languages, just the syntax.
 ```
 String -> letra
@@ -103,13 +101,6 @@ You can declare a variable with just this:
 ```
 baryabol name ay "Nice"
 ```
-
-If you want to declare a specific type for the variable, you can:
-```
-baryabol na letra name ay "Nice"
-```
-
-If the type is not agreed with the expression then it will throw an error.
 
 To test it out, you can print it with `ipahayag`.
 
