@@ -6,7 +6,9 @@ from interpreter.nodes import (
     BaryabolAssignNode,
     LetraNode,
     IpahayagNode,
-    KungNode
+    KungNode,
+    TukuyinEstablishNode,
+    TukuyinAccessNode
 )
 from interpreter.consts import KEYWORDS
 from interpreter.exceptions import SyntaxErrorException
@@ -23,16 +25,27 @@ class Parser:
         self.pos += 1
         self.curr_token = self.tokens[self.pos] if self.pos < len(self.tokens) else None
 
-    def parse(self):
+    def parse(self, from_main=True):
 
         # Loop through the tokens until the end of file.
-        while self.curr_token[0] != TokenTypes.EOF and self.curr_token[0] != TokenTypes.PAGTATAPOS:
+        while self.curr_token[0] != TokenTypes.EOF if from_main else self.curr_token[0] != TokenTypes.PAGTATAPOS:
+            # Baryabol
             if self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[0]:
                 self.baryabol()
+            
+            # Ipahayag
             elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[1]:
                 self.ipahayag()
+
+            # Kung statements
             elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[2]:
                 self.kung_statement()
+
+            # Tukuyin
+            elif self.curr_token[0] == TokenTypes.KEYWORD and self.curr_token[1] == KEYWORDS[7]:
+                self.tukuyin_establish()
+            elif self.curr_token[0] == TokenTypes.IDENTIFIER:
+                self.tukuyin_access()
             else:
                 self.next()
 
@@ -74,6 +87,7 @@ class Parser:
         expressions = []
         condition = None
         body = []
+        in_functions = 0
 
         expressions.append(self.expr())
 
@@ -92,12 +106,88 @@ class Parser:
         self.next()
 
         while self.curr_token[0] != TokenTypes.PAGTATAPOS:
-            self.next()
+            if self.curr_token[0] == TokenTypes.KEYWORD:
+                in_functions += 1
             
             body.append(self.curr_token)
+            self.next()
+
+        for _ in range(in_functions):
+            body.append([TokenTypes.PAGTATAPOS])
 
         self.parses.append(KungNode(expressions, condition, body))
 
+    def tukuyin_establish(self):
+        self.next()
+
+        func_name = None
+        params = []
+        body = []
+        in_functions = 0
+
+        if self.curr_token[0] != TokenTypes.ANG:
+            SyntaxErrorException("May ineexpect na 'ang' pero walang mahanap.")
+
+        self.next()
+
+        if self.curr_token[0] != TokenTypes.IDENTIFIER:
+            SyntaxErrorException("May ineexpect na identifier pero walang mahanap.")
+
+        func_name = self.curr_token[1]
+
+        self.next()
+
+        if self.curr_token[0] != TokenTypes.LEFT_PARENTHESIS:
+            SyntaxErrorException("May ineexpect na '(' pero walang mahanap.")
+
+        self.next()
+
+        while self.curr_token[0] != TokenTypes.RIGHT_PARENTHESIS:
+            params.append(self.curr_token)
+            self.next()
+
+        self.next()
+
+        if self.curr_token[0] != TokenTypes.TAPOS:
+            SyntaxErrorException("May ineexpect na 'tapos' pero walang mahanap.")
+        
+        while self.curr_token[0] != TokenTypes.PAGTATAPOS:
+            if self.curr_token[0] == TokenTypes.KEYWORD:
+                in_functions += 1
+            elif self.curr_token[0] == TokenTypes.IDENTIFIER:
+                in_functions += 1
+            
+            body.append(self.curr_token)
+            self.next()
+
+        for _ in range(in_functions if in_functions != 0 else 1):
+            body.append([TokenTypes.PAGTATAPOS])
+        
+        self.parses.append(TukuyinEstablishNode(func_name, params, body))
+
+    def tukuyin_access(self):
+        try: func_name = self.curr_token[1]
+        except: ...
+
+        self.next()
+
+        if self.curr_token[0] == TokenTypes.LEFT_PARENTHESIS:
+            params = []
+
+            self.next()
+
+            while self.curr_token[0] != TokenTypes.RIGHT_PARENTHESIS:
+                params.append(self.curr_token)
+                self.next()
+            
+            if self.curr_token[0] != TokenTypes.RIGHT_PARENTHESIS:
+                SyntaxErrorException("May ineexpect na ')' pero walang mahanap.")
+
+            self.parses.append(TukuyinAccessNode(func_name, params))
+        elif self.curr_token[0] == TokenTypes.NEWLINE:
+            return
+        else:
+            SyntaxErrorException(f"May naligaw '{self.curr_token[1]}'")
     def expr(self):
         node = self.term()
 

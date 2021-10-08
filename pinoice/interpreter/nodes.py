@@ -64,4 +64,20 @@ class KungNode(AST):
     def __repr__(self):
         return f'{self.condition}'
 
+class TukuyinEstablishNode(AST):
+    def __init__(self, func_name, params, body):
+        self.func_name = func_name
+        self.params = params
+        self.body = body
+
+    def __repr__(self):
+        return f'{self.condition}'
+
+class TukuyinAccessNode(AST):
+    def __init__(self, func_name, params):
+        self.func_name = func_name
+        self.params = params
+
+    def __repr__(self):
+        return f'{self.condition}'
 

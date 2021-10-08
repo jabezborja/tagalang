@@ -44,6 +44,7 @@ KEYWORDS = [
     "ay",
     "itala",
     "ang",
+    "tukuyin"
 ]
 
 class Consts:

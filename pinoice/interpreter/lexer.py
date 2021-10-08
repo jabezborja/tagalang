@@ -40,6 +40,8 @@ class Lexer:
                 self.next()
             elif self.curr_char in '@':
                 self.skip_line()
+            elif self.curr_char in '.' and self.future() in '.' and self.future(jump=2) in '.':
+                for _ in range(4): self.next()
             elif self.curr_char in ' ':
                 self.next()
             elif self.curr_char in Consts.DIGITS:
@@ -84,15 +86,14 @@ class Lexer:
                 for _ in range(5): self.next()
             elif self.curr_char in 'p' and self.future() in 'a' and self.future(jump=2) in 'g' and self.future(jump=3) in 't' and self.future(jump=4) in 'a' and self.future(jump=5) in 't' and self.future(jump=6) in 'a' and self.future(jump=7) in 'p' and self.future(jump=8) in 'o' and self.future(jump=9) in 's':
                 tokens.append(Token(TokenTypes.PAGTATAPOS))
-                for _ in range(9): self.next()
+                for _ in range(10): self.next()
             elif self.curr_char in ',':
                 tokens.append(Token(TokenTypes.COMMA))
                 self.next()
             elif self.curr_char in Consts.LETTERS:
                 tokens.append(self.generate_identifier())
             else:
-                self.next()
-                return []
+                SyntaxErrorException("Nagkaroon ng error sa pag gegenerate ng mga tokens.")
                 
         tokens.append(Token(TokenTypes.EOF))
             

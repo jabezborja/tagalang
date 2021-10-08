@@ -70,9 +70,26 @@ class Interpreter(NodeVisitor):
 
         if condition == TokenTypes.EQUALS:
             if exprs[0] == exprs[1]:
-                parser = Parser(body, split=False).parse()
+                parser = Parser(body, split=False).parse(from_main=False)
                 isolated_interpreter = Interpreter(parser, self.conductor)
                 isolated_interpreter.interpret()
+    
+    def visit_TukuyinEstablishNode(self, node):
+        func_name = node.func_name
+        params = node.params
+        body = node.body
+
+        self.conductor.subscribe_tukuyin(func_name, params, body)
+
+    def visit_TukuyinAccessNode(self, node):
+        func_name = node.func_name
+        tukuyin = self.conductor.use_tukuyin(func_name)
+        params = tukuyin[0]
+        body = tukuyin[1]
+
+        parser = Parser(body, split=False).parse(from_main=False)
+        isolated_interpreter = Interpreter(parser, self.conductor)
+        isolated_interpreter.interpret()
 
     def interpret(self):
         while self.curr_parser != None:

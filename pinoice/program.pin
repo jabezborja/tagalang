@@ -1,10 +1,6 @@
-baryabol pangalan ay "Jabez"
-baryabol edad ay 17
 
-kung pangalan ay "Jabez" tapos
-    ipahayag ang "Kumusta, Jabez"
-
-    kung edad ay 17 tapos
-        ipahayag ang "Nice, 17 na siya"
-    pagtatapos
+tukuyin ang main() tapos
+    ipahayag ang "Ako ay nasa main!"
 pagtatapos
+
+main()
