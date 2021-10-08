@@ -1,6 +1,8 @@
 
 tukuyin ang main() tapos
-    ipahayag ang "Ako ay nasa main!"
+    ipahayag ang nice
 pagtatapos
+
+baryabol nice ay "nice"
 
 main()

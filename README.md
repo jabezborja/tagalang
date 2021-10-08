@@ -7,19 +7,22 @@ It is in the top of Python which is a high-level also so Pinoice is considered a
 
 ## Example
 ```
-baryabol pangalan ay "Jabez"
-baryabol edad ay 17
+@ Pinoice
+baryabol operation_1 ay 2 + 5 * 5
+baryabol operation_2 ay 3
 
-ipahayag ang "Si " + pangalan + " ay " + edad + " na taong gulang"
+@ Will print 30, Pinoice accurately follow the MDAS math.
+ipahayag ang operation_1 + operation_2
 ```
 
 ### Equivalent to
 ```python
 # Python
-pangalan = "Jabez"
-edad = 17
+operation_1 = 2 + 5 * 5
+operation_2 = 3
 
-print("Si " + pangalan + " ay " + str(edad) + " na taong gulang")
+# Will print 30, Python accurately follow the MDAS math.
+print(operation_1 + operation_2)
 ```
 
 ## Todos
@@ -51,12 +54,21 @@ print("Si " + pangalan + " ay " + str(edad) + " na taong gulang")
 ### Prerequisites
 - Python3.x
 
-Clone the TagaLang repository in your local machine to get started. (TagaLang is not in Pip yet.)
+Clone the Pinoice repository in your local machine to get started. (Pinoice is not in Pip yet.)
 ```bash
 git clone git@github.com:jabezborja/Pinoice.git
 ```
 
-After that, you can now start coding with TagaLang.
+After that, you can now start coding with Pinoice.
+
+But first, go to interpreter folder.
+
+In windows:
+```
+cd interpreter
+```
+
+Then
 
 Try to run the file you want.
 ```bash
