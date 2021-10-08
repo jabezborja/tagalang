@@ -148,6 +148,7 @@ And it works like a charm. You can try it yourself!
 # Changelog
 *Oct 8, 2021*
 - Kung statements (If statements)
+- Tukuyin (Functions)
 
 *Oct 5, 2021*
 - Ipahayag (print)
