@@ -85,7 +85,7 @@ And it should interpret the program.
 # How To Use
 > There is no Functions, and loops yet.
 
-### Variables
+## Variables
 Variables in Pinoice are called Baryabols (well, because it is tagalog).
 Types in Tagalang are not different in other languages, just the syntax.
 ```
@@ -104,7 +104,7 @@ baryabol name ay "Nice"
 
 To test it out, you can print it with `ipahayag`.
 
-### Ipahayag
+## Ipahayag
 Ipahayag is like `print()` in Python. Just simple.
 
 To print a string or letra
@@ -123,7 +123,7 @@ or
 ipahayag ang "Ako si " + name
 ```
 
-### Kung Statements
+## Kung Statements
 Just like other languages, we have Kung statements too.
 
 Kung statements works like Lua programming with 'THEN' and 'END'
@@ -147,6 +147,45 @@ pagtatapos
 ```
 
 And it works like a charm. You can try it yourself!
+
+## Tukuyin Functions
+Tukuyin is inspired by Python's 'def' which really derives from the word 'define'.
+And just like Python, it almost has the same function structure but Pinoice
+does not depend on indentation, but in 'TAPOS' and 'PAGTATAPOS' like Kung statements.
+
+To establish a new function:
+```
+tukuyin ang <function_name>(<parameters>) tapos
+    ...
+pagtatapos
+```
+To call it, simply:
+```
+<function_name>(<parameters>)
+```
+
+Now, let's try to make program out of it.
+```
+baryabol name ay "Jabez"
+
+tukuyin ang main() tapos
+    kung name ay "Jabez" tapos
+        ipahayag ang "Kumusta, Jabez!"
+    pagtatapos
+pagtatapos
+
+main()
+```
+Which equivalent to, in Python:
+```python
+name = "Jabez"
+
+def main():
+    if name == "Jabez":
+        print("Kumusta, Jabez!")
+
+main()
+```
 
 # Changelog
 *Oct 8, 2021*
