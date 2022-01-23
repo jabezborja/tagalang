@@ -1,17 +1,17 @@
-# Pinoice - A Tagalog Programming Language
-Pinoice is a rooftop-level tagalog-based syntax yet-procedural cautiously interpreted programming language where Filipino programmers can play with. 
+# TagaLang - A Tagalog Programming Language
+TagaLang is a rooftop-level tagalog-based syntax yet-procedural cautiously interpreted programming language where Filipino programmers can play with. 
 
-It is in the top of Python which is a high-level also so Pinoice is considered as the 'rooftop-level' programming language. It's design is for readability for Filipinos to understand how programming languages really works in their native language. With that being said, I will try my best to make the grammar more Tagalog.
+It is in the top of Python which is a high-level also so TagaLang is considered as the 'rooftop-level' programming language. It's design is for readability for Filipinos to understand how programming languages really works in their native language. With that being said, I will try my best to make the grammar more Tagalog.
 
-> The reason why Pinoice is made from scratch is to make the language allow more grammar to use and more easy to read as it will use more Filipino grammar (Hopefully it can.)
+> The reason why TagaLang is made from scratch is to make the language allow more grammar to use and more easy to read as it will use more Filipino grammar (Hopefully it can.)
 
 ## Example
 ```
-@ Pinoice
+@ TagaLang
 baryabol operation_1 ay 2 + 5 * 5
 baryabol operation_2 ay 3
 
-@ Will print 30, Pinoice accurately follow the MDAS math.
+@ Will print 30, TagaLang accurately follow the MDAS math.
 ipahayag ang operation_1 + operation_2
 ```
 
@@ -54,12 +54,12 @@ print(operation_1 + operation_2)
 ### Prerequisites
 - Python3.x
 
-Clone the Pinoice repository in your local machine to get started. (Pinoice is not in Pip yet.)
+Clone the TagaLang repository in your local machine to get started. (TagaLang is not in Pip yet.)
 ```bash
-git clone git@github.com:jabezborja/Pinoice.git
+git clone git@github.com:jabezborja/TagaLang.git
 ```
 
-After that, you can now start coding with Pinoice.
+After that, you can now start coding with TagaLang.
 
 But first, go to interpreter folder.
 
@@ -86,7 +86,7 @@ And it should interpret the program.
 > There is no Functions, and loops yet.
 
 ## Variables
-Variables in Pinoice are called Baryabols (well, because it is tagalog).
+Variables in TagaLang are called Baryabols (well, because it is tagalog).
 Types in Tagalang are not different in other languages, just the syntax.
 ```
 String -> letra
@@ -128,7 +128,7 @@ Just like other languages, we have Kung statements too.
 
 Kung statements works like Lua programming with 'THEN' and 'END'
 
-But in Pinoice, it is 'TAPOS' and 'PAGTATAPOS'
+But in TagaLang, it is 'TAPOS' and 'PAGTATAPOS'
 
 To perform a kung statements
 ```
@@ -150,7 +150,7 @@ And it works like a charm. You can try it yourself!
 
 ## Tukuyin Functions
 Tukuyin is inspired by Python's 'def' which really derives from the word 'define'.
-And just like Python, it almost has the same function structure but Pinoice
+And just like Python, it almost has the same function structure but TagaLang
 does not depend on indentation, but in 'TAPOS' and 'PAGTATAPOS' like Kung statements.
 
 To establish a new function:
@@ -215,7 +215,7 @@ main()
 - Baryabols types (Letra (string), Numero (integer), Ano (Boolean), KahitAno (Any))
 
 *Sept 28, 2021*
-- Recontinue of the Project as Pinoice
+- Recontinue of the Project as TagaLang
 
 *Sept, 2020*
 - Start of the Project as TagaLag
