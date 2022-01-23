@@ -1,4 +1,4 @@
-## For writing the grammar example of Pinoice to use as a reference when doing some Pinoice
+## For writing the grammar example of Tagalang to use as a reference when doing some Tagalang
 
 # Variables
 ```
