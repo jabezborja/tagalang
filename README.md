@@ -1,7 +1,7 @@
 # TagaLang - A Tagalog Programming Language
-TagaLang is a rooftop-level tagalog-based syntax yet-procedural cautiously interpreted programming language where Filipino programmers can play with. 
+TagaLang is a rooftop-level Tagalog-based syntax yet-procedural cautiously interpreted programming language that Filipino programmers can play with. 
 
-It is in the top of Python which is a high-level also so TagaLang is considered as the 'rooftop-level' programming language. It's design is for readability for Filipinos to understand how programming languages really works in their native language. With that being said, I will try my best to make the grammar more Tagalog.
+It is on top of Python, a high-level language, so TagaLang is considered the 'rooftop-level' programming language. Its design is for readability and for Filipinos to understand how programming languages work in their native language. With that being said, I will try my best to make the grammar more Tagalog.
 
 > The reason why TagaLang is made from scratch is to make the language allow more grammar to use and more easy to read as it will use more Filipino grammar (Hopefully it can.)
 
@@ -86,8 +86,8 @@ And it should interpret the program.
 > There is no Functions, and loops yet.
 
 ## Variables
-Variables in TagaLang are called Baryabols (well, because it is tagalog).
-Types in Tagalang are not different in other languages, just the syntax.
+Variables in TagaLang are called Baryabols (well, because it is Tagalog).
+Types in TagaLang are not different in other languages, just the syntax.
 ```
 String -> letra
 Integer -> numero
@@ -149,7 +149,7 @@ pagtatapos
 And it works like a charm. You can try it yourself!
 
 ## Tukuyin Functions
-Tukuyin is inspired by Python's 'def' which really derives from the word 'define'.
+Tukuyin is inspired by Python's 'def' which is derived from the word 'define'.
 And just like Python, it almost has the same function structure but TagaLang
 does not depend on indentation, but in 'TAPOS' and 'PAGTATAPOS' like Kung statements.
 
